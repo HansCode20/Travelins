@@ -41,10 +41,10 @@
         <h1 data-aos="zoom-in" className="text-[40px] font-bold flex justify-center text-center ">Categories<br />Travel</h1>
         <hr className='border-1 border-black w-1/3 mx-auto mt-5'/>
         <div className="flex flex-col md:flex-row md:justify-center p-5 gap-5  ">
-          <div data-aos="fade-right" className="w-full md:w-1/3 md:mr-2">
+          <div data-aos="fade-up" className="w-full md:w-1/3 md:mr-2">
             <p className="p-4  text-center">Create lasting memories with loved ones through family travel. This category includes vacations designed for families, with activities and accommodations suitable for children of all ages, ensuring a fun and memorable experience for the whole family.</p>
           </div>
-          <div data-aos="fade-left" className="w-full md:w-1/3 md:ml-2">
+          <div data-aos="fade-up" className="w-full md:w-1/3 md:ml-2">
             <p className="p-4  text-center">Embark on a journey of self-discovery and empowerment with solo travel. Whether it's backpacking across continents or embarking on a solo retreat, solo travel offers the freedom to explore at one's own pace and embrace new adventures independently.</p>
           </div>
         </div>
