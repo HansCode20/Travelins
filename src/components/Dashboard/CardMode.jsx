@@ -42,7 +42,7 @@ const deleteId = async(e)=>{
 }
   return (
    <>
-  <div key={data.id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+  <div key={data.id} className="max-w-sm rounded-xl overflow-hidden shadow-lg bg-white">
   <div className="aspect-w-4 aspect-h-3">
     {data?.imageUrls ? 
       data.imageUrls.map((img, index) => (

@@ -14,7 +14,7 @@ import { FaIdCard } from 'react-icons/fa'
 const Categories = () => {
     const [data,setData] = useState([])
     const [currentPage,setCurrentPage] =useState(1)
-    const [postPerPage,setPostPerPage] =useState(5)
+    const [postPerPage,setPostPerPage] =useState(6)
     const lastPostPage = currentPage * postPerPage
     const firstPostIndex = lastPostPage -postPerPage
     const [searchQuery,setSearchQuery] = useState('')

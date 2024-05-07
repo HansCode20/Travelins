@@ -21,8 +21,8 @@ const Background = () => {
       })
       .then((res) => {
         if (res.data.data.length > 0) {
-          setBackgroundImageUrl(res.data?.data[4]?.imageUrls[0]); // Set the background image URL
-          setActivity(res.data.data[4]);
+          setBackgroundImageUrl(res.data?.data[2]?.imageUrls[0]); // Set the background image URL
+          setActivity(res.data.data[2]);
         }
       })
       .catch((err) => {

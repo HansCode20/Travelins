@@ -15,7 +15,7 @@ import Loader from '../../components/UI/Loader'
 const Destination = () => {
   const [data,setData] = useState([])
   const [currentPage,setCurrentPage] =useState(1)
-  const [postPerPage,setPostPerPage] =useState(5)
+  const [postPerPage,setPostPerPage] =useState(6)
   const lastPostPage = currentPage * postPerPage
   const firstPostIndex = lastPostPage -postPerPage
 

@@ -13,7 +13,7 @@ import CardMode from '../../components/Dashboard/CardMode'
 const Banner = () => {
   const [data,setData] = useState([])
   const [currentPage,setCurrentPage] =useState(1)
-  const [postPerPage,setPostPerPage] =useState(5)
+  const [postPerPage,setPostPerPage] =useState(6)
   const lastPostPage = currentPage * postPerPage
   const firstPostIndex = lastPostPage -postPerPage
   const dispatch = useDispatch()
@@ -52,7 +52,7 @@ const currentPost = filteredData.slice(firstPostIndex,lastPostPage)
       <button onClick={()=>handleModeGrid(true)} className={`${()=> 'text-blue-700'} text-4xl text-slate-700`}><IoIosGrid /></button>
       <button onClick={()=>handleModeGrid(false)} className='text-4xl mr-4 text-slate-700'><FaIdCard /></button>
     </div>
-    <div className='grid-cols-1 place-content-center place-items-center '>
+    <div className='grid-cols-1 place-content-center place-items-center'>
       {gridMode && 
     <div className='grid w-full '>
     <TabelContent  urlDelete="delete-banner" urlUpdate="update-banner" modalsTitle='banner'  title="Banner" data={currentPost}/>
