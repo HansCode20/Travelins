@@ -50,13 +50,13 @@ const ActionTab = ({id,value,urlDelete,link}) => {
         <Toaster position='top-center' richColors>
     </Toaster>
         <button className='cursor-pointer ' onClick={deleteId}>
-    <MdDelete size={24} color='#ef4444'/>
+    <MdDelete size={24}/>
     </button>
         <button  className='cursor-pointer' onClick={Edits}>
-    <AiFillEdit size={24} color='#60a5fa'/>
+    <AiFillEdit size={24} />
      </button>
         <button onClick={goTo}>
-        <AiFillFile size={24} color='rgb(22, 163, 74)'/>
+        <AiFillFile size={24} />
      </button>
         </td>
   )

@@ -16,7 +16,7 @@ const IconTop = () => {
       <p className="text-gray-500 mb-8">Experience a variety of benefits when using our services</p>
       
       <div className="flex justify-center">
-        <div data-aos="zoom-in" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div data-aos="zoom-in" className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <IconCard iconReact={<FaRegPaperPlane />} title="Travel" text="We provide escort from the airport to the hotel"/>
           <IconCard iconReact={<CiWallet />} title="Finance" text="Quick and easy booking of upcoming tours"/>
           <IconCard iconReact={<IoIosPeople />} title="Community" text="Our best tour guides are ready to assist you"/>
@@ -33,8 +33,8 @@ const IconCard = ({ iconReact, title, text }) => {
       <div className="p-4 bg-gray-200 rounded-full">
         {iconReact && <ReactIcon iconReact={iconReact} />} 
       </div>
-      <h1 className="mt-4 mb-2 text-xl font-semibold">{title}</h1>
-      <p className="text-md text-gray-600 w-2/4">{text}</p>
+      <h1 className="mt-4 mb-2 text-xs md:text-xl font-semibold">{title}</h1>
+      <p className="text-xs md:text-lg text-gray-600 lg:w-2/4">{text}</p>
     </div>
   );
 };
@@ -42,7 +42,7 @@ const IconCard = ({ iconReact, title, text }) => {
 const ReactIcon = ({ iconReact, size }) => {
   return (
     <div>
-      {React.cloneElement(iconReact, { size: size || 30 })}
+      {React.cloneElement(iconReact, { size: size || 20 })}
     </div>
   );
 };

@@ -26,7 +26,7 @@ const Destination = () => {
   }, [id]);
 
   return (
-    <div data-aos="fade-up" className="container mx-auto px-4 py-8">
+    <div data-aos="fade-up" className="container mx-auto px-4 py-8 min-h-screen">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="max-w-full mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="relative overflow-hidden rounded-t-xl">

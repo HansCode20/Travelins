@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import BackgroundVideo from "../assets/Vid/Background Video.mp4";
 import IconTop from '../components/IconTop';
 import Promo from '../components/Promo/Promo';
@@ -11,16 +11,14 @@ function Home() {
 
   return (
 
-    <div>
-      <div className='h-screen overflow-hidden relative'>
-        <div className="container-xl p-5 h-full relative">
-          <video src={BackgroundVideo} className='rounded-xl w-full object-cover h-full' autoPlay loop muted ></video>
-          <div className='absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center px-6 sm:px-8 lg:px-12 xl:px-16'>
-            <h1 className='text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-center mb-4'>Explore the World <br /> With Us</h1>
-            <h2 className='text-white text-xl lg:text-xl font-semibold text-center mb-4'>A Place where nature and adventure unite</h2>
-            <button className='text-white bg-black p-3 rounded-xl hover:bg-white hover:text-black'>Learn More</button>
+    <div className='space-y-20'>
+        <div className="container-xl h-full relative">
+          <video src={BackgroundVideo} className='w-full object-cover h-64 md:h-96 object-cover' autoPlay loop muted ></video>
+          <div className='absolute top-0 bottom-0 right-0 left-0 flex flex-col items-center justify-center'>
+            <h1 className='text-white text-lg lg:text-6xl xl:text-7xl font-semibold text-center mb-4'>Explore the World <br /> With Us</h1>
+            <h2 className='text-white text-xs lg:text-xl font-semibold text-center mb-4'>A Place where nature and adventure unite</h2>
+            <button className='text-white text-sm bg-black p-3 rounded-xl hover:bg-white hover:text-black'>Learn More</button>
           </div>
-        </div>
       </div>
         <IconTop></IconTop>
         <Promo></Promo>

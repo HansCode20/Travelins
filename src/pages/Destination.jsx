@@ -22,17 +22,18 @@ const Destination = () => {
     },[])
     console.log(data)
     const imageurls = data.map(data=>data.imageUrls)
+
   return (
-    <div data-aos="zoom-in" className='grid gap-4 mt-[50px] mx-4 place-items-center'>
-   <DetailPage title='Destination' imageurl={imageurls} />
-   <div className='flex flex-wrap items-center justify-center gap-10'>
-   {
-     data.map(data =>(
-       <Card url={`/destination/${data.id}`} name={data.title} price={data.price} imageurl={data.imageUrls}/>
-      ))
-    }
-    </div>
+    <div data-aos="zoom-in" className='grid gap-4 mt-[50px] mb-[50px] mx-4 place-items-center '>
+      <DetailPage title='Destination' imageurl={imageurls} />
+      <div className='flex flex-wrap items-center justify-center gap-10'>
+        {
+          data.map(data =>(
+            <Card url={`/destination/${data.id}`} name={data.title} price={data.price} imageurl={data.imageUrls}/>
+            ))
+          }
       </div>
+    </div>
   )
 }
 

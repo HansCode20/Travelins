@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { fetchExternalData } from '../../utils/fetching'
 import Pagination from '../../components/Dashboard/Pagination'
-import { useParams } from 'react-router-dom'
 import CardUsers from '../../components/Dashboard/CardUsers'
-import { isLoading, isOpen, modalsData } from '../../feature/action'
+import { isLoading } from '../../feature/action'
 import { IoExit } from "react-icons/io5";
 import axios from 'axios'
 import { Toaster, toast } from 'sonner'
-import Searchfeature from '../../components/Dashboard/Searchfeature'
 import Loader from '../../components/UI/Loader'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -70,55 +68,67 @@ const currentPost = data.slice(firstPostIndex,lastPostPage)
       if(loading){
         return <Loader/>
       }
-      return (
-   <div className='grid w-full place-content-center gap-4 place-items-center'>
-   <h1 className='text-center text-3xl font-semibold mb-4'>Users</h1>
+
+return (
+  <div className='grid w-full place-content-center gap-4 place-items-center'>
+    <h1 className='text-center text-3xl font-semibold mb-4'>Users</h1>
+
    <div className='grid  grid-cols-2 sm:grid-cols-3  md:grid-cols-4  w-full h-full  gap-2'>
-   {currentPost.map((item)=>(
-     <CardUsers key={item.id}
-     setModaldataUpdate={setModaldataUpdate}
-     userIdProps={userIdProps}
-     setModalUser={setModalUser}
-     data={{...item}
-     }
-/>
-    ))}
+      {currentPost.map((item)=>(
+        <CardUsers key={item.id}
+        setModaldataUpdate={setModaldataUpdate}
+        userIdProps={userIdProps}
+        setModalUser={setModalUser}
+        data={{...item}
+        }
+      />
+      ))}  
     </div>
+
     <div className='pb-4'>
-    <Toaster position='top-center' richColors></Toaster>
-    <Pagination totalPosts={data.length} currentpage={ currentPage}  setCurrentpage={setCurrentPage} postsPerPage={postPerPage}/>
-      </div>
+      <Toaster position='top-center' richColors></Toaster>
+      <Pagination totalPosts={data.length} currentpage={ currentPage}  setCurrentpage={setCurrentPage} postsPerPage={postPerPage}/>
+    </div>
+
      {/* Modal Edit Role */}
       <div
        className={`${modalUser ? 'block' : 'hidden'}
-       w-svw h-svh bg-gray-700/50
-       fixed top=0 right-0 left-0 bottom-0
+       fixed w-full h-full top-0 left-0 
        `}>
-        <div className='h-full grid place-content-center place-items-center'>
-          <div className='grid bg-slate-700 p-5'>
-     <div className='flex w-full justify-end'>
-        <button onClick={closeModal} className= 'text-white   '><IoExit size={32}/></button>
-     </div>
-      <h1 className='text-white font-semibold'>user name: {modalDataUpdate?.name}</h1>
-      <h1 className='text-white font-semibold'>email: {modalDataUpdate?.email}</h1>
-       <select className='p-2 mt-2 rounded-md' defaultValue={roleValue} onChange={(e)=>setRoleValue(e.target.value)}>
-        {modalDataUpdate?.role == 'user' ? 
-        <>
-        <option>admin</option>
-        <option>user</option>
-        </> : 
-        <>
-        <option>user</option>
-        <option>admin</option>
-        </> }
-       </select>
-       <div className='flex mt-2 justify-end'>
-       <button onClick={handleUpdateUser} className='bg-green-500 px-4 py-1 rounded-lg text-white font-semibold'>Confirm</button>
-       </div>
+        <div className='grid w-full h-full bg-black bg-opacity-80 place-content-center '>
+
+              <div className='flex w-full justify-end'>
+                  <button onClick={closeModal} className= 'text-white fixed top-0 right-0 p-5'><IoExit size={32}/></button>
+              </div>
+
+              <div className='flex flex-col gap-3 w-full '>  
+              
+                  <h1 className='text-center text-white text-2xl font-semibold mb-5'>Update Role</h1>
+                  <div className='flex flex-col md:flex-row gap-2 justify-between text-white'>
+                    <h1 className='text-xs font-medium'>{modalDataUpdate?.name}</h1>
+                    <span className='text-xs font-medium'>{modalDataUpdate?.email}</span>
+                  </div>
+
+                  <h1 className='text-white font-semibold'>Select Role :</h1>
+                  <select className='w-full md:w-96 p-3 rounded-md' defaultValue={roleValue} onChange={(e)=>setRoleValue(e.target.value)}>
+                    {modalDataUpdate?.role == 'user' ? 
+                    <>
+                    <option>admin</option>
+                    <option>user</option>
+                    </> : 
+                    <>
+                    <option>user</option>
+                    <option>admin</option>
+                    </> }
+                  </select>
+
+                <div className='flex mt-2 justify-end'>
+                  <button onClick={handleUpdateUser} className='bg-green-500 w-full p-2 rounded-lg text-white font-semibold'>Confirm</button>
+                </div>  
+              </div>
         </div>
-          </div>
+
       </div>
-        {/* Modal Edit Role */}
 
    </div>
   )

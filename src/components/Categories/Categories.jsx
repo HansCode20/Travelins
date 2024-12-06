@@ -37,7 +37,7 @@
       console.log(categories);
 
     return (
-      <div className="p-5">
+      <div className="mt-10 p-5">
         <h1 data-aos="zoom-in" className="text-[40px] font-bold flex justify-center text-center ">Categories<br />Travel</h1>
         <hr className='border-1 border-black w-1/3 mx-auto mt-5'/>
         <div className="flex flex-col md:flex-row md:justify-center p-5 gap-5  ">
@@ -52,49 +52,48 @@
 
         {/* Api Categories */}
         {categories.length > 0 && (
-        <div className="container mx-auto p-10 mt-10">
-  {/* <!-- Image 1 (Full Container) --> */}
-  <div data-aos="zoom-in" className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 xl:gap-8">
-    <div className="group relative overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-      <img src={categories[0]?.imageUrl} alt="Destination Name" className="w-full object-cover object-center transition duration-200 group-hover:scale-110 rounded-b-lg" />
-      <div className="p-4">
-        <h2 className="text-4xl font-bold">{categories[0]?.name}</h2>
-        <ul className="flex p-6 gap-4">
-          <li className="bg-gray-300 bg-opacity-70 rounded-full p-2 w-auto text-center">Trips</li>
-          <li className="bg-gray-300 bg-opacity-70 rounded-full p-2 w-auto text-center">{categories[0]?.name}</li>
-          <li className="bg-gray-300 bg-opacity-70 rounded-full p-2 w-auto text-center">Tours</li>
-        </ul>
-      </div>
-    </div>
+          <div className="container mx-auto  mt-10">
+            {/* <!-- Image 1 (Full Container) --> */}
+            <div data-aos="zoom-in" className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 xl:gap-8">
+              <div className="group relative overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+                <img src={categories[0]?.imageUrl} alt="Destination Name" className="w-full object-cover object-center transition duration-200 group-hover:scale-110 rounded-b-lg" />
+                <div className="p-4">
+                  <h2 className="text-4xl font-bold">{categories[0]?.name}</h2>
+                  <ul className="flex p-6 gap-4">
+                    <li className="bg-gray-300 bg-opacity-70 rounded-lg p-2 w-auto text-center">Trips</li>
+                    <li className="bg-gray-300 bg-opacity-70 rounded-lg p-2 w-auto text-center truncate">{categories[0]?.name}</li>
+                    <li className="bg-gray-300 bg-opacity-70 rounded-lg p-2 w-auto text-center">Tours</li>
+                  </ul>
+                </div>
+              </div>
 
-    {/* <!-- Image 2 and 3 (Half Container) --> */}
-    <div className="flex flex-col gap-4">
-      <div className="group relative overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-        <img src={categories[0].imageUrl} alt="Destination Name" className="w-full h-48 object-cover object-center transition duration-200 group-hover:scale-110 rounded-b-lg" />
-        <div className="p-4">
-          <h2 className="text-3xl font-bold">{categories[0].name}</h2>
-          <ul className="flex p-6 gap-4">
-          <li className="bg-gray-300 bg-opacity-70 rounded-full p-2 w-auto text-center">Trips</li>
-          <li className="bg-gray-300 bg-opacity-70 rounded-full p-2 w-auto text-center">{categories[0].name}</li>
-          <li className="bg-gray-300 bg-opacity-70 rounded-full p-2 w-auto text-center">Tours</li>
-        </ul>
-        </div>
-      </div>
-      <div className="group relative overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-        <img src={categories[0].imageUrl}  alt="Destination Name" className="w-full h-48 object-cover object-center transition duration-200 group-hover:scale-110 rounded-b-lg" />
-        <div className="p-4">
-          <h2 className="text-3xl font-bold">{categories[0].name}</h2>
-          <ul className="flex p-6 gap-4">
-          <li className="bg-gray-300 bg-opacity-70 rounded-full p-2 w-auto text-center">Trips</li>
-          <li className="bg-gray-300 bg-opacity-70 rounded-full p-2 w-auto text-center">{categories[0].name}</li>
-          <li className="bg-gray-300 bg-opacity-70 rounded-full p-2 w-auto text-center">Tours</li>
-        </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+              {/* <!-- Image 2 and 3 (Half Container) --> */}
+              <div className="flex flex-col gap-4">
+                <div className="group relative overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+                  <img src={categories[1]?.imageUrl} alt="Destination Name" className="w-full h-48 object-cover object-center transition duration-200 group-hover:scale-110 rounded-b-lg" />
+                  <div className="p-4">
+                    <h2 className="text-3xl font-bold">{categories[1]?.name}</h2>
+                    <ul className="flex p-6 gap-4">
+                    <li className="bg-gray-300 bg-opacity-70 rounded-lg p-2 w-auto text-center">Trips</li>
+                    <li className="bg-gray-300 bg-opacity-70 rounded-lg p-2 w-auto text-center truncate">{categories[0]?.name}</li>
+                    <li className="bg-gray-300 bg-opacity-70 rounded-lg p-2 w-auto text-center">Tours</li>
+                  </ul>
+                  </div>
+                </div>
+                <div className="group relative overflow-hidden rounded-lg bg-gray-100 shadow-lg">
+                  <img src={categories[2]?.imageUrl}  alt="Destination Name" className="w-full h-48 object-cover object-center transition duration-200 group-hover:scale-110 rounded-b-lg" />
+                  <div className="p-4">
+                    <h2 className="text-3xl font-bold">{categories[2]?.name}</h2>
+                    <ul className="flex p-6 gap-4">
+                    <li className="bg-gray-300 bg-opacity-70 rounded-lg p-2 w-auto text-center">Trips</li>
+                    <li className="bg-gray-300 bg-opacity-70 rounded-lg p-2 w-auto text-center truncate">{categories[2]?.name}</li>
+                    <li className="bg-gray-300 bg-opacity-70 rounded-lg p-2 w-auto text-center">Tours</li>
+                  </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
 
       </div>

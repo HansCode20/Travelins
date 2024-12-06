@@ -52,22 +52,26 @@ const currentPost = filteredData.slice(firstPostIndex,lastPostPage)
       <button onClick={()=>handleModeGrid(true)} className={`${()=> 'text-blue-700'} text-4xl text-slate-700`}><IoIosGrid /></button>
       <button onClick={()=>handleModeGrid(false)} className='text-4xl mr-4 text-slate-700'><FaIdCard /></button>
     </div>
+
     <div className='grid-cols-1 place-content-center place-items-center'>
       {gridMode && 
-    <div className='grid w-full '>
-    <TabelContent  urlDelete="delete-banner" urlUpdate="update-banner" modalsTitle='banner'  title="Banner" data={currentPost}/>
-    </div>
-    }
-    <div className='flex flex-wrap justify-center items-center gap-8'>
-    {!gridMode && 
-    currentPost.map((data)=>(
-      <CardMode  urlDelete="delete-banner" urlUpdate="update-banner" url={`/dashboard/banner/${data.id}`} key={data.id} title="Banner" data={data}/>
-    ))
-  }
-  </div>
-    <div className='grid mt-2 '>
-    <Pagination totalPosts={data.length} currentpage={ currentPage}  setCurrentpage={setCurrentPage} postsPerPage={postPerPage}/>
-    </div>
+        <div className='grid w-full '>
+          <TabelContent  urlDelete="delete-banner" urlUpdate="update-banner" modalsTitle='banner'  title="Banner" data={currentPost}/>
+        </div>
+      }
+      
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-5 '>
+        {!gridMode && 
+            currentPost.map((data)=>(
+              <CardMode  urlDelete="delete-banner" urlUpdate="update-banner" url={`/dashboard/banner/${data.id}`} key={data.id} title="Banner" data={data}/>
+            ))
+        }
+      </div>
+
+      <div className='grid mt-2 '>
+         <Pagination totalPosts={data.length} currentpage={ currentPage}  setCurrentpage={setCurrentPage} postsPerPage={postPerPage}/>
+      </div>
+      
     </div>
     </>
   )

@@ -29,18 +29,18 @@ const Background2 = () => {
   }, []);
 
   return (
-    <div data-aos="zoom-in" className='h-screen overflow-hidden relative '>
-      <div className="container mx-auto h-full relative p-6">
+    <div data-aos="zoom-in">
+      <div className="container mx-auto  relative p-6">
         {/* Use image URL from the state */}
         {backgroundImageUrl && (
-          <img width={1000} height={200} src={backgroundImageUrl} className='brightness-50 rounded-xl w-full object-cover h-full max-h-[600px]' alt="Background" />
+          <img src={backgroundImageUrl} className='brightness-50 rounded-xl w-full object-cover h-64 md:h-96' alt="Background" />
         )}
         <div className='absolute top-0 left-0 p-6 sm:p-8 lg:p-12  xl:p-16 flex flex-col sm:flex-row justify-center items-center w-full h-full'>
           <div className="text-center">
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold p-4 ">
+            <h1 className="text-white text-lg sm:text-5xl lg:text-6xl  font-semibold p-4 ">
               Let's start <br /> the Travel Journey
             </h1>
-            <h2 className='text-white pt-7 text-xl p-6 sm:p-10 lg:p-14 font-semibold '>
+            <h2 className='text-white pt-7 text-sm md:text-xl p-6 sm:p-10 lg:p-14 font-semibold '>
               "Let's start this adventure with the first step, exploring amazing destinations, smelling new air, and creating unforgettable memories along our journey."
             </h2>
           </div>

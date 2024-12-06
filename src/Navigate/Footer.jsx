@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div>
-    <div className="bg-gray-100 m-6 rounded-lg">
+    <div className="bg-gray-100">
       <div className="container mx-auto py-8 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div>
@@ -28,15 +27,15 @@ function Footer() {
             </div>
             <div>
               <h1 className="text-lg font-semibold mb-2">Contact</h1>
-              <p className="text-sm">Phone: +6282228525021</p>
-              <p className="text-sm">Email: Fananiilham20@gmail.com</p>
+              <p className="text-sm">Phone: +6282228525221</p>
+              <p className="text-sm">Email: Travelins@gmail.com</p>
             </div>
           </div>
         </div>
             <hr  className='border-1 border-black w-auto'/>
             <div className="flex justify-between mt-4">
                 <div>
-                  <p className="text-center text-sm ">© 2024 Travelin. All rights reserved.</p>
+                  <p className="text-xs md:text-sm">© 2024 Travelin. All rights reserved.</p>
                 </div>
                 <div className="flex gap-4 text-2xl ">
                 <a href="https://www.facebook.com/share/YpgHiaVFSi4CQ33J/?mibextid=qi2Omg"><FaFacebook /></a>
@@ -45,7 +44,6 @@ function Footer() {
                 </div>
             </div>
       </div>
-    </div>
     </div>
   );
 }

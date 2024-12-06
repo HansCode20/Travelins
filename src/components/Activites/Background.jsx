@@ -21,8 +21,8 @@ const Background = () => {
       })
       .then((res) => {
         if (res.data.data.length > 0) {
-          setBackgroundImageUrl(res.data?.data[2]?.imageUrls[0]); // Set the background image URL
-          setActivity(res.data.data[2]);
+          setBackgroundImageUrl(res.data?.data[1]?.imageUrls[0]); // Set the background image URL
+          setActivity(res.data?.data[1]);
         }
       })
       .catch((err) => {
@@ -31,34 +31,29 @@ const Background = () => {
   }, []);
 
   return (
-    <div className='h-screen overflow-hidden relative'>
-      <div  data-aos="zoom-in" className="text-black container-xl p-10 h-full relative">
+    <div>
+      <div  data-aos="zoom-in" className="relative">
         {/* Use image URL from the state */}
+        <div className='bg-black opacity-50 absolute top-0 left-0 w-full h-full'></div>
         {backgroundImageUrl && (
-          <img src={backgroundImageUrl} className='rounded-xl w-full object-cover h-full max-h-[600px]' alt="Background" />
+          <img src={backgroundImageUrl} className='lg:rounded-xl w-full object-cover h-50 max-h-[600px]' alt="Background" />
         )}
-        <div className='absolute top-0 left-0 p-6 sm:p-8 lg:p-12  xl:p-16 flex flex-col sm:flex-row justify-between w-full'>
-          <div className="flex text-black flex-col justify-center">
-            <h1 className="text-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold p-4 ">
-              Enjoy Your <br />
-              Travel
-            </h1>
-            <h2 className='text-black pt-7 text-xl p-4'>
-              Discover the most unique and vibrant
-              <br />
-              experiences the Azores have to offer
-            </h2>
-          </div>
-          {activity && (
-            <div className='sm:mt-auto sm:ml-auto p-10 '>
-              <div className=' bg-opacity-70 rounded-xl p-4'>
-                <h1 className="text-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-center">
-                  {activity?.title}, <br />
-                  {activity?.province}
-                </h1>
-              </div>
+        <div className='absolute top-0 left-0 p-6 sm:p-8 lg:p-12  xl:p-16 w-full'>
+            <div className='flex flex-row justify-between items-center'>
+              <h1 className="text-white text-xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold p-4 ">
+                Enjoy Your <br />
+                Travel
+              </h1>
+                  <span className="text-white text-sm sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-center">
+                    {activity?.title}, <br />
+                    {activity?.province}
+                  </span>
             </div>
-          )}
+              <h2 className='text-white pt-7 text-sm md:text-xl p-4'>
+                Discover the most unique and vibrant
+                <br />
+                experiences the Azores have to offer
+            </h2>
         </div>
       </div>
     </div>
