@@ -37,7 +37,7 @@ const Banner = () => {
       <Marquee pauseOnHover>
         {banners.map((banner) => (
           <div key={banner.id} className='relative mx-4 '>
-            <img src={banner.imageUrl} alt="banner" className='object-cover rounded-lg w-64 h-40' />
+            <img src={banner.imageUrl} alt="banner" className='object-cover rounded-lg w-44 h-24 md:w-64 md:h-36' />
             <div className='overlay absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 hover:rounded-lg text-center' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
               <h1 className='text-white text-xl font-bold'>
                 {banner.name}

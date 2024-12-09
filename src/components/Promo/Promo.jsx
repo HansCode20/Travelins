@@ -40,19 +40,11 @@ const Promo = () => {
     };
 
     const handleSeeAll = () => {
-        setLoading(true);
-        setTimeout(() => {
-            setShowAll(true);
-            setLoading(false);
-        }, 1000);
+       setShowAll(true);
     };
 
     const handsCloseAll = () => {
-        setLoading(true);
-        setTimeout(() => {
-            setShowAll(false);
-            setLoading(false);
-        }, 1000);
+       setShowAll(false);
     };
 
     return (
