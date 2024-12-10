@@ -4,11 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { IoCloseOutline } from "react-icons/io5";
-import { FaLocationDot } from "react-icons/fa6";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-import { FaMapMarked } from 'react-icons/fa';
-import { FaHome } from 'react-icons/fa';
-import { AiFillDashboard } from 'react-icons/ai';
 import { Toaster, toast } from 'sonner';
 import MenuProfile from '../components/UtilsFeature/MenuProfile';
 import { isOpen } from '../feature/action';
@@ -18,7 +14,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [navIsOpen, setNavIsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isPress, setIsPress] = useState(false);
   const [user, setUser] = useState(null);
 
   const tokenLocal = JSON.parse(localStorage.getItem('token'));
@@ -128,48 +123,77 @@ const Navbar = () => {
           <button onClick={toggleNav} className="flex justify-end w-full p-4">
             <IoCloseOutline size={42} />
           </button>
-          <div className="gap-6 grid place-items-center mt-10">
+         
+
+          {tokenLocal && (
+            <div className="mt-6 p-4 bg-gray-50">
+              {/* Profile Header */}
+              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
+                {/* User Info */}
+                <div className="text-center">
+                  <h1 className="text-lg font-semibold text-gray-800">{user?.name}</h1>
+                  <p className="text-xs px-2 py-1 rounded-md bg-slate-800 text-white inline-block">
+                    {user?.role}
+                  </p>
+                </div>
+
+                {/* Profile Picture */}
+                <div className="flex items-center gap-2">
+                  <button onClick={() => dispatch(isOpen())}>
+                    <img
+                      className="rounded-full w-12 h-12 object-cover border-2 border-gray-300"
+                      src={user?.profilePictureUrl}
+                      alt="Profile"
+                    />
+                  </button>
+                  <button onClick={toggleMenu}>
+                    <IoIosArrowDropdownCircle
+                      size={34}
+                      className={`transition-transform ${
+                        menuOpen ? 'rotate-180 text-gray-600' : 'text-gray-800'
+                      }`}
+                    />
+                  </button>
+                </div>
+              </div>
+
+            {/* Dropdown Menu */}
+            {menuOpen && (
+              <div className="mt-4 grid gap-3 bg-white rounded-lg shadow-md p-4">
+                <button
+                  onClick={() => goTo('/profile')}
+                  className="text-sm font-medium text-gray-800 hover:text-blue-600 transition"
+                >
+                  Profile
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="text-sm font-medium text-gray-800 hover:text-red-600 transition"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+         <div className="gap-6 grid place-items-center mt-10">
             <button onClick={() => goTo('/')} className="flex gap-3 items-center text-3xl">
-              <FaHome />
               Home
             </button>
             <button onClick={() => goTo('/destination')} className="flex gap-3 items-center text-3xl">
-              <FaLocationDot />
               Destination
             </button>
             <button onClick={() => goTo('/category')} className="flex gap-3 items-center text-3xl">
-              <FaMapMarked />
               Category
             </button>
             {user?.role === 'admin' && (
               <button onClick={() => goTo('/dashboardadmin')} className="flex gap-3 items-center text-3xl">
-                <AiFillDashboard />
                 Dashboard
               </button>
             )}
           </div>
-          {tokenLocal && (
-            <div className="mt-4 p-4 shadow-md rounded-lg">
-              <div className="flex items-center gap-4 border-b-2 pb-2">
-                <div className="grid place-items-center">
-                  <h1>{user?.name}</h1>
-                  <p className="text-[10px] px-1 rounded-md bg-slate-800 text-white text-sm">{user?.role}</p>
-                </div>
-                <button onClick={() => dispatch(isOpen())}>
-                  <img className="rounded-full w-12 h-12 object-cover" src={user?.profilePictureUrl} alt="Profile" />
-                </button>
-                <button onClick={toggleMenu}>
-                  <IoIosArrowDropdownCircle size={34} />
-                </button>
-              </div>
-              {menuOpen && (
-                <div className="mt-4 grid gap-4">
-                  <button onClick={() => goTo('/profile')}>Profile</button>
-                  <button onClick={handleLogout}>Logout</button>
-                </div>
-              )}
-            </div>
-          )}
+          
         </div>
       </div>
     </div>
